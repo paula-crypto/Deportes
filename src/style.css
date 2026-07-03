@@ -1,0 +1,152 @@
+:root {
+  --nexus-cyan: #00f0ff;
+  --nexus-blue: #0052ff;
+  --nexus-glow: rgba(0, 240, 255, 0.15);
+  --bg-obsidian: #05070f;
+  --bg-card: rgba(13, 20, 38, 0.45);
+  --border-alpha: rgba(255, 255, 255, 0.06);
+  --text-secondary: #94a3b8;
+}
+
+/* Reset Global y Fluidez Absoluta */
+html, body, #app {
+  background-color: var(--bg-obsidian) !important;
+  color: #ffffff !important;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tarjetas Estilo Nexo (Premium Glassmorphism) */
+.nexus-card {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-alpha) !important;
+  backdrop-filter: blur(16px);
+  border-radius: 16px !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.nexus-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--nexus-cyan) !important;
+  box-shadow: 0 12px 40px rgba(0, 240, 255, 0.12) !important;
+}
+
+.text-cyan-glow {
+  color: var(--nexus-cyan) !important;
+  text-shadow: 0 0 12px var(--nexus-glow);
+}
+
+.text-tracking-spaced {
+  letter-spacing: 3px;
+}
+
+
+/* ==========================================================================
+   MASTER MEDIA QUERIES - OPTIMIZACIÓN RESPONSIVA MULTIPANTALLA
+   ========================================================================== */
+
+/* --- 1. PANTALLAS GRANDES Y MONITORES DE ESCRITORIO (Desktops >= 1200px) --- */
+@media (min-width: 1200px) {
+  .q-page {
+    padding: 3rem 2rem !important; /* Espaciado premium espacioso */
+  }
+}
+
+/* --- 2. TABLETS Y DISPOSITIVOS MEDIANOS (Pantallas < 1024px) --- */
+@media (max-width: 1023px) {
+  .text-h2 {
+    font-size: 2.75rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .text-h3 {
+    font-size: 2.25rem !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Reducir sutilmente los espacios entre grillas para que no dejen huecos gigantes */
+  .q-col-gutter-xl, .q-col-gutter-x-xl {
+    margin-left: -16px !important;
+  }
+  .q-col-gutter-xl > *, .q-col-gutter-y-xl > * {
+    padding-left: 16px !important;
+    padding-bottom: 24px !important;
+  }
+}
+
+/* --- 3. MÓVILES Y PANTALLAS COMPACTAS (Smartphones < 600px) --- */
+@media (max-width: 599px) {
+  /* Control de Títulos: Evita que las palabras se corten o fuercen saltos de línea antiestéticos */
+  .text-h2 {
+    font-size: 1.85rem !important;
+    letter-spacing: 0.5px !important;
+    line-height: 1.15 !important;
+  }
+  
+  .text-h3 {
+    font-size: 1.5rem !important;
+    letter-spacing: 0px !important;
+    line-height: 1.2 !important;
+  }
+
+  .text-h4 {
+    font-size: 1.35rem !important;
+  }
+
+  .text-h5 {
+    font-size: 1.15rem !important;
+  }
+
+  .text-subtitle1 {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Rediseño de la Cabecera de las Páginas (Brazos, Piernas, Pecho, Espalda) 
+     Pasa de fila horizontal (row no-wrap) a bloque vertical fluido */
+  .page-header-nexus {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    flex-wrap: wrap !important;
+    gap: 14px !important;
+  }
+
+  .page-header-nexus .q-chip {
+    align-self: flex-start !important; /* El chip indicador se alinea a la izquierda abajo */
+    margin-left: 0 !important;
+  }
+
+  /* Ajustes Críticos de Relleno (Paddings) para no desperdiciar pantalla en celular */
+  .q-page {
+    padding: 20px 12px !important; /* Reduce el espacio muerto lateral en los bordes del teléfono */
+  }
+
+  /* Optimización interna de las tarjetas de ejercicios */
+  .nexus-card .q-card__section {
+    padding: 16px 16px 12px 16px !important; /* Reduce el relleno exagerado de escritorio */
+  }
+
+  .nexus-card .q-card__actions {
+    padding: 0px 16px 16px 16px !important;
+  }
+
+  .border-top-glow {
+    padding-top: 12px !important;
+  }
+
+  /* Ajustes de botones de acción en celulares para mejor respuesta táctil */
+  .btn-nexus-action {
+    padding: 6px 12px !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* Comportamiento de la barra de pestañas superior fija */
+  .nav-btn {
+    font-size: 0.85rem !important;
+    padding: 4px 10px !important;
+  }
+}
